@@ -1,0 +1,19 @@
+name: Manual build
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  buid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Checkout submodules init
+        run: git submodule init
+      - name: Checkout submodules update
+        run: git submodule update --remote
+      - name: Build Docker image
+        run: docker build . -t localhost/coreos-assembler
