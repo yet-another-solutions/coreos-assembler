@@ -111,7 +111,8 @@ for d in (tmpdir, tmpisoroot, tmpisocoreos, tmpisoimages, tmpisoimagespxe,
     os.mkdir(d)
 
 # Size of file used to embed an Ignition config within a CPIO.
-ignition_img_size = 256 * 1024
+# Increased to 2 gigabytes to embed huge ignition
+ignition_img_size = 2 * 1024 * 1024 * 1024
 
 # Size of the file used to embed miniso data.
 miniso_data_file_size = 16 * 1024
